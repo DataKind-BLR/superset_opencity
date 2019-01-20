@@ -11,15 +11,38 @@ import sandboxedEval from '../../../modules/sandbox';
 function getLayer(formData, payload, slice) {
   const fd = formData;
   const fc = fd.fill_color_picker;
+
+  const sc = fd.stroke_color_picker;
+  // let data = [...payload.data.features];
   let data = payload.data.features.map(d => ({
     ...d,
     fillColor: [fc.r, fc.g, fc.b, 255 * fc.a],
   }));
+  // const mainMetric = payload.data.metricLabels.length ? payload.data.metricLabels[0] :  null;
+
+  // let colorScaler;
+  // if (mainMetric) {
+  //   const ext = d3.extent(data, d => d[mainMetric]);
+  //   const scaler = colorScalerFactory(fd.linear_color_scheme, null, null, ext, true);
+  //   colorScaler = (d) => {
+  //     const c = scaler(d[mainMetric]);
+  //     c[3] = (fd.opacity / 100.0) * 255;
+  //     return c;
+  //   };
+  // }
+
+  if(fd.extra_filters != undefined) {
+    data.extra_filters = fd.extra_filters;
+  }
+
+
 
   if (fd.js_data_mutator) {
     // Applying user defined data mutator if defined
     const jsFnMutator = sandboxedEval(fd.js_data_mutator);
     data = jsFnMutator(data);
+    console.log(data);
+    // delete data.extra_filters;
   }
 
   return new PolygonLayer({

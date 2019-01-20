@@ -1568,6 +1568,33 @@ export const visTypes = {
     },
   },
 
+  js_filter_box: {
+    label: t('Javascript Filter Box'),
+    controlPanelSections: [
+      {
+        label: t('Query'),
+        expanded: true,
+        controlSetRows: [
+          ['groupby'],
+          ['metric'],
+          ['adhoc_filters'],
+          ['instant_filtering'],
+        ],
+      },
+    ],
+    controlOverrides: {
+      groupby: {
+        label: t('Filter controls'),
+        description: t(
+          'The controls you want to filter on. Note that only columns ' +
+          'checked as "filterable" will show up on this list.'),
+        mapStateToProps: state => ({
+          options: (state.datasource) ? state.datasource.columns.filter(c => c.filterable) : [],
+        }),
+      },
+    },
+  },
+
   iframe: {
     label: t('iFrame'),
     controlPanelSections: [

@@ -162,13 +162,11 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^15.6.2",
     "redux-mock-store": "^1.2.3",
-    "//": "known minor issues in >5.0",
     "sinon": "^4.5.0",
     "style-loader": "^0.21.0",
     "transform-loader": "^0.2.3",
     "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "^0.6.2",
-    "//": "Known issues with >=4",
     "webpack": "^3.10.0",
     "webpack-manifest-plugin": "2.0.3",
     "webworkify-webpack": "2.1.2"

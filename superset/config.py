@@ -247,7 +247,7 @@ INTERVAL = 1
 BACKUP_COUNT = 30
 
 # Set this API key to enable Mapbox visualizations
-MAPBOX_API_KEY = os.environ.get('MAPBOX_API_KEY', '')
+MAPBOX_API_KEY = os.environ.get('MAPBOX_API_KEY', 'pk.eyJ1IjoiZW9wb3hmIiwiYSI6ImNqbW9waWppeTBmbmcza3Bub2dwbmN1MjgifQ.43Jke9M7kjs1HeI21wdfag')
 
 # Maximum number of rows returned in the SQL editor
 SQL_MAX_ROW = 1000000
@@ -385,7 +385,7 @@ HIVE_POLL_INTERVAL = 5
 # this enables programmers to customize certain charts (like the
 # geospatial ones) by inputing javascript in controls. This exposes
 # an XSS security vulnerability
-ENABLE_JAVASCRIPT_CONTROLS = False
+ENABLE_JAVASCRIPT_CONTROLS = True
 
 # A callable that allows altering the database conneciton URL and params
 # on the fly, at runtime. This allows for things like impersonation or

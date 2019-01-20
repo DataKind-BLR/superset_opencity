@@ -1810,6 +1810,30 @@ class FilterBoxViz(BaseViz):
         return d
 
 
+class JSFilterBoxViz(FilterBoxViz):
+
+    """ Filter for runtime js control
+    """
+
+    viz_type = 'js_filter_box'
+    verbose_name = _('JS Filters')
+
+    def get_data(self, df):
+        d = {}
+        filters = [g for g in self.form_data['groupby']]
+        print(filters)
+        
+        d["columns"] = [{
+            'id': fltr,
+            'text': fltr,
+            'filter': "columns",
+            'metric': 0}
+            for fltr in filters
+        ]
+        print(d)
+        return d
+
+
 class IFrameViz(BaseViz):
 
     """You can squeeze just about anything in this iFrame component"""
